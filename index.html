@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PHS High School</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* ---------- RESET & BASE ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f8faff;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---------- HEADER ---------- */
+        .header {
+            background: linear-gradient(135deg, #0b2b4a 0%, #1a4b6d 100%);
+            color: #fff;
+            padding: 16px 0 12px;
+            border-bottom: 4px solid #f5b342;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            z-index: 100;
+        }
+
+        .header .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .logo-area img {
+            height: 70px;
+            width: 70px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: #fff;
+            padding: 4px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s;
+        }
+        .logo-area img:hover {
+            transform: scale(1.04);
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.35rem;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+        .logo-text span {
+            display: block;
+            font-weight: 300;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            opacity: 0.85;
+            text-transform: uppercase;
+        }
+
+        .header-center {
+            flex: 1 1 260px;
+            min-width: 180px;
+        }
+
+        .search-form {
+            display: flex;
+            flex-wrap: nowrap;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 60px;
+            padding: 2px 2px 2px 18px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: 0.3s;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+        .search-form:focus-within {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: #f5b342;
+            box-shadow: 0 0 0 4px rgba(245, 179, 66, 0.2);
+        }
+        .search-form input[type="text"] {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 10px 0;
+            font-size: 0.95rem;
+            color: #fff;
+            outline: none;
+            min-width: 100px;
+        }
+        .search-form input[type="text"]::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .search-form button {
+            background: #f5b342;
+            border: none;
+            border-radius: 60px;
+            padding: 8px 22px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #0b2b4a;
+            cursor: pointer;
+            transition: 0.25s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+        .search-form button:hover {
+            background: #ffc970;
+            transform: scale(1.02);
+        }
+
+        .header-contact {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .header-contact li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+        .header-contact li i {
+            color: #f5b342;
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+        .header-contact li strong {
+            font-weight: 500;
+        }
+
+        /* ---------- NAVIGATION ---------- */
+        .nav-wrapper {
+            background: #fff;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid #e9edf4;
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+
+        .nav-wrapper .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0 24px;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            color: #0b2b4a;
+            padding: 12px 0;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .nav-menu>li {
+            position: relative;
+        }
+
+        .nav-menu>li>a {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 14px 18px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1e293b;
+            border-radius: 8px;
+            transition: 0.2s;
+            letter-spacing: 0.3px;
+        }
+        .nav-menu>li>a i {
+            font-size: 0.7rem;
+            opacity: 0.6;
+            transition: 0.2s;
+        }
+        .nav-menu>li>a:hover,
+        .nav-menu>li:hover>a {
+            background: #f1f5f9;
+            color: #0b2b4a;
+        }
+        .nav-menu>li>a:hover i,
+        .nav-menu>li:hover>a i {
+            transform: rotate(180deg);
+        }
+
+        /* dropdown */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 220px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+            padding: 8px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: 0.25s ease;
+            border: 1px solid #eef2f8;
+            z-index: 200;
+        }
+        .nav-menu>li:hover>.dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 10px 22px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: #1e293b;
+            transition: 0.15s;
+            border-left: 3px solid transparent;
+        }
+        .dropdown-menu li a:hover {
+            background: #f8faff;
+            border-left-color: #f5b342;
+            color: #0b2b4a;
+        }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+        .dropdown-submenu>.dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-left: 2px;
+            min-width: 200px;
+        }
+        .dropdown-submenu:hover>.dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-submenu>a::after {
+            content: "\f054";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            font-size: 0.6rem;
+            float: right;
+            margin-top: 4px;
+            opacity: 0.5;
+        }
+
+        .multi-column {
+            min-width: 480px;
+            padding: 12px 0;
+        }
+        .multi-column .col {
+            float: left;
+            width: 50%;
+            padding: 0 8px;
+        }
+        .multi-column .col ul li a {
+            padding: 8px 18px;
+            font-size: 0.85rem;
+        }
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* ---------- HERO / CAROUSEL ---------- */
+        .hero-section {
+            background: #0b2b4a;
+            padding: 0 0 30px;
+        }
+
+        .hero-carousel {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+        .carousel-slide .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 40px 24px;
+            background: linear-gradient(transparent, rgba(11, 43, 74, 0.85));
+            color: #fff;
+        }
+        .carousel-slide .slide-caption h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 16px;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .carousel-controls button {
+            pointer-events: auto;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(6px);
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            font-size: 1.3rem;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.25s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel-controls button:hover {
+            background: #f5b342;
+            color: #0b2b4a;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .carousel-dots span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: 0.25s;
+        }
+        .carousel-dots span.active {
+            background: #f5b342;
+            width: 32px;
+            border-radius: 20px;
+        }
+
+        /* ---------- NEWS + CALENDAR GRID ---------- */
+        .news-calendar-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin: 32px 0 40px;
+        }
+
+        /* NEWS */
+        .news-panel {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+            padding: 24px 24px 12px;
+            border: 1px solid #eef2f8;
+        }
+
+        .news-panel h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0b2b4a;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .news-panel h3 i {
+            color: #f5b342;
+        }
+
+        .news-ticker {
+            max-height: 440px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .news-item {
+            background: #f8faff;
+            border-radius: 14px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            border-left: 4px solid #f5b342;
+            transition: 0.2s;
+            animation: fadeSlide 0.5s ease;
+        }
+        .news-item:hover {
+            background: #f1f5f9;
+            transform: translateX(4px);
+        }
+        .news-item .news-meta {
+            font-size: 0.75rem;
+            color: #64748b;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .news-item .news-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #0b2b4a;
+            margin: 4px 0 6px;
+        }
+        .news-item .news-desc {
+            font-size: 0.92rem;
+            color: #334155;
+        }
+
+        @keyframes fadeSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* CALENDAR */
+        .calendar-panel {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+            padding: 24px 24px 20px;
+            border: 1px solid #eef2f8;
+        }
+
+        .calendar-panel h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0b2b4a;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .calendar-panel h3 span {
+            font-weight: 400;
+            font-size: 1rem;
+            color: #64748b;
+        }
+
+        .calendar-nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+        .calendar-nav a {
+            background: #f1f5f9;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #0b2b4a;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .calendar-nav a:hover {
+            background: #f5b342;
+            color: #fff;
+        }
+
+        .calendar-grid {
+            display: flex;
+            flex-direction: column;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #eef2f8;
+        }
+        .calendar-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            background: #0b2b4a;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .calendar-week {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            border-bottom: 1px solid #eef2f8;
+        }
+        .calendar-week:last-child {
+            border-bottom: none;
+        }
+        .calendar-day {
+            min-height: 90px;
+            padding: 6px 8px;
+            background: #fff;
+            border-right: 1px solid #eef2f8;
+            transition: 0.15s;
+            cursor: default;
+        }
+        .calendar-day:last-child {
+            border-right: none;
+        }
+        .calendar-day.empty {
+            background: #fafcff;
+        }
+        .calendar-day:hover {
+            background: #f8faff;
+        }
+        .day-number {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #0b2b4a;
+            margin-bottom: 4px;
+        }
+        .event-chip {
+            background: #e6f0fa;
+            border-left: 3px solid #f5b342;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #0b2b4a;
+            margin-bottom: 3px;
+            cursor: pointer;
+            transition: 0.15s;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .event-chip:hover {
+            background: #f5b342;
+            color: #fff;
+        }
+
+        /* ---------- SOCIAL BAR ---------- */
+        .social-bar {
+            background: #fff;
+            padding: 16px 0;
+            border-top: 1px solid #eef2f8;
+            border-bottom: 1px solid #eef2f8;
+            margin: 12px 0 28px;
+        }
+        .social-bar .container {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .social-bar a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 28px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #fff;
+            transition: 0.25s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+        .social-bar a i {
+            font-size: 1.3rem;
+        }
+        .social-bar a.twitter {
+            background: #1a1a1a;
+        }
+        .social-bar a.twitter:hover {
+            background: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+        .social-bar a.facebook {
+            background: #1877f2;
+        }
+        .social-bar a.facebook:hover {
+            background: #0d65d9;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(24, 119, 242, 0.3);
+        }
+
+        /* ---------- WELCOME SECTION ---------- */
+        .welcome-section {
+            text-align: center;
+            padding: 20px 0 30px;
+        }
+        .welcome-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0b2b4a;
+            letter-spacing: -1px;
+        }
+        .welcome-section h2 i {
+            color: #f5b342;
+        }
+        .welcome-section p {
+            max-width: 760px;
+            margin: 12px auto 0;
+            color: #475569;
+            font-size: 1.05rem;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            background: #0b2b4a;
+            color: #e2e8f0;
+            padding: 32px 0 20px;
+            margin-top: 20px;
+            border-top: 4px solid #f5b342;
+        }
+        .footer .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 24px;
+        }
+        .footer-left {
+            flex: 1 1 300px;
+        }
+        .footer-left p {
+            font-size: 0.92rem;
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+        .footer-left p a {
+            color: #f5b342;
+            font-weight: 600;
+        }
+        .footer-left p a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-right {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+        }
+        .footer-right ul {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .footer-right ul li a {
+            font-size: 0.92rem;
+            opacity: 0.8;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .footer-right ul li a:hover {
+            opacity: 1;
+            color: #f5b342;
+        }
+        .footer-right ul li a i {
+            font-size: 0.7rem;
+            color: #f5b342;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.85rem;
+            opacity: 0.7;
+            width: 100%;
+        }
+
+        /* ---------- MODAL ---------- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-box {
+            background: #fff;
+            max-width: 480px;
+            width: 92%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            animation: modalIn 0.25s ease;
+            overflow: hidden;
+        }
+        @keyframes modalIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.94) translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        .modal-header {
+            background: #0b2b4a;
+            color: #fff;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .modal-header h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .modal-header .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            color: #fff;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: 0.2s;
+        }
+        .modal-header .close-modal:hover {
+            opacity: 1;
+            transform: rotate(90deg);
+        }
+        .modal-body {
+            padding: 24px;
+            font-size: 1rem;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+        .modal-footer {
+            padding: 12px 24px 20px;
+            text-align: right;
+        }
+        .modal-footer .btn-ok {
+            background: #f5b342;
+            border: none;
+            padding: 10px 32px;
+            border-radius: 40px;
+            font-weight: 700;
+            color: #0b2b4a;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+        .modal-footer .btn-ok:hover {
+            background: #ffc970;
+            transform: scale(1.02);
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 1024px) {
+            .header-contact li strong {
+                font-size: 0.8rem;
+            }
+            .header-contact {
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .news-calendar-wrap {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #fff;
+                padding: 8px 0 16px;
+                border-top: 1px solid #eef2f8;
+            }
+            .nav-menu.open {
+                display: flex;
+            }
+            .nav-menu>li {
+                width: 100%;
+            }
+            .nav-menu>li>a {
+                padding: 12px 16px;
+                border-radius: 0;
+            }
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                border: none;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                padding-left: 20px;
+                display: none;
+                background: #f8faff;
+                border-radius: 0;
+            }
+            .nav-menu>li:hover>.dropdown-menu {
+                display: none;
+            }
+            .nav-menu>li.open>.dropdown-menu {
+                display: block;
+            }
+            .dropdown-submenu>.dropdown-menu {
+                padding-left: 20px;
+                display: none;
+            }
+            .dropdown-submenu.open>.dropdown-menu {
+                display: block;
+            }
+            .multi-column {
+                min-width: auto;
+            }
+            .multi-column .col {
+                float: none;
+                width: 100%;
+            }
+
+            .carousel-slide img {
+                height: 300px;
+            }
+            .carousel-slide .slide-caption h3 {
+                font-size: 1.2rem;
+            }
+            .carousel-controls button {
+                width: 38px;
+                height: 38px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+            .logo-area {
+                justify-content: center;
+            }
+            .logo-text {
+                font-size: 1.1rem;
+            }
+            .header-contact {
+                justify-content: center;
+                font-size: 0.8rem;
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+            .header-contact li {
+                white-space: normal;
+            }
+            .search-form {
+                max-width: 100%;
+            }
+
+            .carousel-slide img {
+                height: 220px;
+            }
+            .carousel-slide .slide-caption {
+                padding: 16px 20px 14px;
+            }
+            .carousel-slide .slide-caption h3 {
+                font-size: 1rem;
+            }
+            .carousel-controls button {
+                width: 32px;
+                height: 32px;
+                font-size: 0.8rem;
+            }
+
+            .calendar-day {
+                min-height: 60px;
+                padding: 4px 4px;
+            }
+            .day-number {
+                font-size: 0.8rem;
+            }
+            .event-chip {
+                font-size: 0.6rem;
+                padding: 1px 4px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .calendar-weekdays {
+                font-size: 0.65rem;
+                padding: 6px 0;
+            }
+
+            .footer .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-right {
+                justify-content: center;
+            }
+            .footer-right ul {
+                align-items: center;
+            }
+
+            .social-bar a {
+                padding: 8px 18px;
+                font-size: 0.85rem;
+            }
+            .social-bar a i {
+                font-size: 1rem;
+            }
+
+            .welcome-section h2 {
+                font-size: 1.5rem;
+            }
+            .welcome-section p {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 14px;
+            }
+            .header-contact {
+                font-size: 0.7rem;
+                gap: 8px;
+            }
+            .header-contact li i {
+                font-size: 0.9rem;
+                width: 16px;
+            }
+            .logo-area img {
+                height: 54px;
+                width: 54px;
+            }
+            .logo-text {
+                font-size: 0.95rem;
+            }
+            .logo-text span {
+                font-size: 0.6rem;
+            }
+            .search-form input[type="text"] {
+                font-size: 0.8rem;
+                padding: 6px 0;
+            }
+            .search-form button {
+                padding: 6px 14px;
+                font-size: 0.75rem;
+            }
+            .nav-menu>li>a {
+                font-size: 0.8rem;
+                padding: 10px 12px;
+            }
+            .calendar-day {
+                min-height: 48px;
+                padding: 2px 2px;
+            }
+            .day-number {
+                font-size: 0.65rem;
+            }
+            .event-chip {
+                font-size: 0.5rem;
+                padding: 1px 3px;
+                border-left-width: 2px;
+            }
+            .news-item {
+                padding: 12px 14px;
+            }
+            .news-item .news-title {
+                font-size: 0.9rem;
+            }
+            .news-item .news-desc {
+                font-size: 0.82rem;
+            }
+            .modal-box {
+                width: 96%;
+            }
+            .modal-header h4 {
+                font-size: 1rem;
+            }
+            .modal-body {
+                padding: 16px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="container">
+
+            <!-- Logo -->
+            <div class="logo-area">
+                <img src="https://placehold.co/140x140/0b2b4a/f5b342?text=PHS" alt="PHS Logo" />
+                <div class="logo-text">
+                    PHS High
+                    <span>Excellence · Integrity · Service</span>
+                </div>
+            </div>
+
+            <!-- Search -->
+            <div class="header-center">
+                <form class="search-form" action="#">
+                    <input type="text" placeholder="Search NjoNjo Girls..." aria-label="Search" />
+                    <button type="submit"><i class="fas fa-search"></i> Search</button>
+                </form>
+            </div>
+
+            <!-- Contact -->
+            <ul class="header-contact">
+                <li><i class="fas fa-phone-alt"></i> <strong>+254 713 714 835</strong></li>
+                <li><i class="fas fa-envelope"></i> <strong>info@phs-high.sc.ke</strong></li>
+                <li><i class="fas fa-map-marker-alt"></i> <strong>P.O. Box 123, Nairobi</strong></li>
+            </ul>
+
+        </div>
+    </header>
+
+    <!-- ===== NAVIGATION ===== -->
+    <div class="nav-wrapper">
+        <div class="container">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <!-- Home -->
+                <li><a href="#">Home</a></li>
+
+                <!-- About Us -->
+                <li>
+                    <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Our Philosophy</a></li>
+                        <li><a href="#">Location</a></li>
+                        <li><a href="#">History</a></li>
+                        <li class="dropdown-submenu">
+                            <a href="#">Management</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">BOG</a></li>
+                                <li><a href="#">PTA</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="#">Administration</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Principal</a></li>
+                                <li><a href="#">Deputies</a></li>
+                                <li><a href="#">HODs</a></li>
+                                <li><a href="#">Teachers</a></li>
+                                <li><a href="#">Student Council</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Performance -->
+                <li>
+                    <a href="#">Performance <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu multi-column clearfix">
+                        <li class="col"><a href="#">K.C.S.E Trends</a></li>
+                        <li class="col"><a href="#">University Transition</a></li>
+                    </ul>
+                </li>
+
+                <!-- Academic Depts -->
+                <li>
+                    <a href="#">Academic Depts <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu multi-column clearfix">
+                        <div class="col">
+                            <li><a href="#">Languages</a></li>
+                            <li><a href="#">Mathematics</a></li>
+                            <li><a href="#">Sciences</a></li>
+                            <li><a href="#">Humanities</a></li>
+                        </div>
+                        <div class="col">
+                            <li><a href="#">Technicals</a></li>
+                            <li><a href="#">Boarding</a></li>
+                            <li><a href="#">Games</a></li>
+                            <li><a href="#">Guiding &amp; Counseling</a></li>
+                        </div>
+                    </ul>
+                </li>
+
+                <!-- Co-Curricular -->
+                <li>
+                    <a href="#">Co-Curricular <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu multi-column clearfix">
+                        <div class="col">
+                            <li><a href="#">Drama</a></li>
+                            <li><a href="#">Music</a></li>
+                            <li><a href="#">Sports</a></li>
+                            <li><a href="#">Christian Union</a></li>
+                            <li><a href="#">Muslim Students</a></li>
+                        </div>
+                        <div class="col">
+                            <li><a href="#">Journalism</a></li>
+                            <li><a href="#">Debate</a></li>
+                            <li><a href="#">Science &amp; Engineering</a></li>
+                            <li><a href="#">Peace Club</a></li>
+                        </div>
+                    </ul>
+                </li>
+
+                <!-- Facilities -->
+                <li>
+                    <a href="#">Facilities <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu multi-column clearfix">
+                        <div class="col">
+                            <li><a href="#">Library</a></li>
+                            <li><a href="#">Laboratories</a></li>
+                            <li><a href="#">Dining Hall</a></li>
+                            <li><a href="#">Classrooms</a></li>
+                            <li><a href="#">Transport</a></li>
+                            <li><a href="#">School Fence</a></li>
+                        </div>
+                        <div class="col">
+                            <li><a href="#">Forest</a></li>
+                            <li><a href="#">Bakery</a></li>
+                            <li><a href="#">Car Park</a></li>
+                            <li><a href="#">Beautification</a></li>
+                            <li><a href="#">Generator</a></li>
+                        </div>
+                    </ul>
+                </li>
+
+                <!-- Students Info -->
+                <li>
+                    <a href="#">Students Info <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Alumnae</a></li>
+                        <li><a href="#">Downloads</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ===== HERO CAROUSEL ===== -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-carousel" id="heroCarousel">
+                <div class="carousel-slides" id="carouselSlides">
+                    <!-- Slide 1 -->
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/1200x480/1a4b6d/ffffff?text=Welcome+to+Prestige+High" alt="School campus" loading="lazy" />
+                        <div class="slide-caption">
+                            <h3>Welcome to Prestige High School</h3>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/1200x480/2a6b8d/ffffff?text=Excellence+in+Education" alt="Students learning" loading="lazy" />
+                        <div class="slide-caption">
+                            <h3>Excellence in Education</h3>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/1200x480/3a7b9d/ffffff?text=State+of+the+Art+Facilities" alt="School facilities" loading="lazy" />
+                        <div class="slide-caption">
+                            <h3>State-of-the-Art Facilities</h3>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/1200x480/4a8bad/ffffff?text=Holistic+Development" alt="Sports and co-curricular" loading="lazy" />
+                        <div class="slide-caption">
+                            <h3>Holistic Student Development</h3>
+                        </div>
+                    </div>
+                    <!-- Slide 5 -->
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/1200x480/5a9bbd/ffffff?text=Strong+Community" alt="School community" loading="lazy" />
+                        <div class="slide-caption">
+                            <h3>Strong Community &amp; Values</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="carousel-controls">
+                    <button id="carouselPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                    <button id="carouselNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Dots -->
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+    </section>
+
+    <!-- ===== WELCOME ===== -->
+    <div class="container">
+        <div class="welcome-section">
+            <h2><i class="fas fa-graduation-cap"></i> Welcome to PHS</h2>
+            <p>
+                Prestige High School is a center of academic excellence, character formation,
+                and holistic development. We nurture young minds to become future leaders
+                with integrity, innovation, and a heart for service.
+            </p>
+        </div>
+    </div>
+
+    <!-- ===== NEWS + CALENDAR ===== -->
+    <div class="container">
+        <div class="news-calendar-wrap">
+
+            <!-- NEWS PANEL -->
+            <div class="news-panel">
+                <h3><i class="fas fa-newspaper"></i> School News Updates</h3>
+                <div class="news-ticker" id="newsTicker">
+                    <!-- items injected by JS -->
+                </div>
+            </div>
+
+            <!-- CALENDAR PANEL -->
+            <div class="calendar-panel">
+                <h3>
+                    <span><i class="far fa-calendar-alt"></i> Events Calendar</span>
+                    <span id="calendarMonthLabel">June 2025</span>
+                </h3>
+
+                <div class="calendar-nav" id="calendarNav">
+                    <a href="#" id="calPrev"><i class="fas fa-arrow-left"></i> May</a>
+                    <a href="#" id="calNext">July <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="calendar-grid" id="calendarGrid">
+                    <!-- rendered by JS -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== SOCIAL BAR ===== -->
+    <div class="social-bar">
+        <div class="container">
+            <a href="#" class="twitter" target="_blank"><i class="fab fa-x-twitter"></i> X (Twitter)</a>
+            <a href="#" class="facebook" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-left">
+                <p>
+                    Copyright &copy; 2026 <br />
+                    Prestige High School · P.O. Box 123, Nairobi<br />
+                    All Rights Reserved. Designed by <a href="#">PHS</a>
+                </p>
+            </div>
+            <div class="footer-right">
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> School Anthem</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Contact Information</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Core Values</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Prestige High School · Built with <i class="fas fa-heart" style="color:#f5b342;"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== MODAL ===== -->
+    <div class="modal-overlay" id="eventModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h4 id="modalTitle">Event Title</h4>
+                <button class="close-modal" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                Event description goes here…
+            </div>
+            <div class="modal-footer">
+                <button class="btn-ok" id="modalOk">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // ---------- NAV TOGGLE (mobile) ----------
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+
+            navToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('open');
+            });
+
+            // Mobile dropdown toggles
+            document.querySelectorAll('.nav-menu > li > a').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 992) {
+                        const parent = this.parentElement;
+                        const dropdown = parent.querySelector('.dropdown-menu');
+                        if (dropdown) {
+                            e.preventDefault();
+                            parent.classList.toggle('open');
+                        }
+                    }
+                });
+            });
+
+            // submenu toggles on mobile
+            document.querySelectorAll('.dropdown-submenu > a').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 992) {
+                        const parent = this.parentElement;
+                        const sub = parent.querySelector('.dropdown-menu');
+                        if (sub) {
+                            e.preventDefault();
+                            parent.classList.toggle('open');
+                        }
+                    }
+                });
+            });
+
+            // ---------- CAROUSEL ----------
+            const slides = document.querySelectorAll('.carousel-slide');
+            const slidesContainer = document.getElementById('carouselSlides');
+            const dotsContainer = document.getElementById('carouselDots');
+            let currentSlide = 0;
+            let autoPlayInterval = null;
+            const totalSlides = slides.length;
+
+            // Build dots
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('span');
+                if (i === 0) dot.classList.add('active');
+                dot.dataset.index = i;
+                dot.addEventListener('click', function() {
+                    goToSlide(parseInt(this.dataset.index));
+                });
+                dotsContainer.appendChild(dot);
+            }
+
+            function goToSlide(index) {
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                currentSlide = index;
+                slidesContainer.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+                // update dots
+                document.querySelectorAll('#carouselDots span').forEach(function(d, i) {
+                    d.classList.toggle('active', i === currentSlide);
+                });
+            }
+
+            function nextSlide() {
+                goToSlide(currentSlide + 1);
+            }
+
+            function prevSlide() {
+                goToSlide(currentSlide - 1);
+            }
+
+            document.getElementById('carouselNext').addEventListener('click', function() {
+                nextSlide();
+                resetAutoPlay();
+            });
+            document.getElementById('carouselPrev').addEventListener('click', function() {
+                prevSlide();
+                resetAutoPlay();
+            });
+
+            function resetAutoPlay() {
+                if (autoPlayInterval) {
+                    clearInterval(autoPlayInterval);
+                    autoPlayInterval = null;
+                }
+                autoPlayInterval = setInterval(nextSlide, 5000);
+            }
+
+            // Start autoplay
+            resetAutoPlay();
+
+            // ---------- NEWS TICKER (static demo) ----------
+            const newsData = [{
+                date: '2026-07-05',
+                title: '🏆 National Science Fair Champions',
+                desc: 'Our students won the top prize at the National Science Fair with an innovative clean-energy project.'
+            }, {
+                date: '2026-06-28',
+                title: '📚 New Library Wing Opens',
+                desc: 'The newly expanded library features a digital lab, quiet study zones, and a modern reading area.'
+            }, {
+                date: '2026-06-20',
+                title: '🎓 University Placement Record',
+                desc: 'Over 95% of our 2025 graduates have secured placement in top universities across the country.'
+            }, {
+                date: '2026-06-12',
+                title: '⚽ Inter-School Games Victory',
+                desc: 'PHS won the inter-school football and athletics championships, bringing home 7 trophies.'
+            }, {
+                date: '2026-06-05',
+                title: '🌍 Global Exchange Program',
+                desc: 'We welcome students from our partner schools in the UK and Canada for a cultural exchange.'
+            }, {
+                date: '2026-05-28',
+                title: '🎭 Drama Festival Performance',
+                desc: 'Our drama club delivered a powerful performance at the National Drama Festival, earning rave reviews.'
+            }];
+
+            const ticker = document.getElementById('newsTicker');
+
+            function renderNews() {
+                ticker.innerHTML = '';
+                newsData.forEach(function(item) {
+                    const div = document.createElement('div');
+                    div.className = 'news-item';
+                    div.innerHTML =
+                        `
+                            <div class="news-meta"><i class="far fa-calendar-alt"></i> ${item.date}</div>
+                            <div class="news-title">${item.title}</div>
+                            <div class="news-desc">${item.desc}</div>
+                        `;
+                    ticker.appendChild(div);
+                });
+            }
+            renderNews();
+
+            // Auto-rotate news ticker (simple cycle)
+            let newsIndex = 0;
+            setInterval(function() {
+                const items = ticker.querySelectorAll('.news-item');
+                if (items.length === 0) return;
+                // fade out first, move to end, fade in
+                const first = items[0];
+                first.style.transition = 'opacity 0.6s';
+                first.style.opacity = '0';
+                setTimeout(function() {
+                    ticker.appendChild(first);
+                    first.style.opacity = '1';
+                }, 600);
+            }, 5000);
+
+            // ---------- CALENDAR (static demo) ----------
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'
+            ];
+
+            // Sample events: { date: '2025-06-15', title: 'Event', desc: '...' }
+            const sampleEvents = [
+                { date: '2026-07-05', title: 'Science Fair', desc: 'Annual science exhibition' },
+                { date: '2026-07-10', title: 'PTA Meeting', desc: 'Parents and teachers meeting' },
+                { date: '2026-07-15', title: 'Sports Day', desc: 'Inter-house athletics' },
+                { date: '2026-07-20', title: 'Music Concert', desc: 'End-of-term concert' },
+                { date: '2026-07-25', title: 'Graduation', desc: 'Form 4 graduation ceremony' },
+                { date: '2026-06-02', title: 'Exams Start', desc: 'End of term exams' },
+                { date: '2026-06-10', title: 'Debate Finals', desc: 'Inter-school debate championship' },
+                { date: '2026-06-18', title: 'Career Day', desc: 'Career guidance and expo' },
+            ];
+
+            let currentYear = 2026;
+            let currentMonth = 6; // June
+
+            function renderCalendar(year, month) {
+                const grid = document.getElementById('calendarGrid');
+                const label = document.getElementById('calendarMonthLabel');
+                const prevLink = document.getElementById('calPrev');
+                const nextLink = document.getElementById('calNext');
+
+                label.textContent = monthNames[month - 1] + ' ' + year;
+
+                // prev / next month labels
+                let prevMonth = month - 1;
+                let prevYear = year;
+                if (prevMonth < 1) { prevMonth = 12;
+                    prevYear--; }
+                let nextMonth = month + 1;
+                let nextYear = year;
+                if (nextMonth > 12) { nextMonth = 1;
+                    nextYear++; }
+                prevLink.innerHTML = '<i class="fas fa-arrow-left"></i> ' + monthNames[prevMonth - 1];
+                nextLink.innerHTML = monthNames[nextMonth - 1] + ' <i class="fas fa-arrow-right"></i>';
+
+                prevLink.onclick = function(e) {
+                    e.preventDefault();
+                    renderCalendar(prevYear, prevMonth);
+                };
+                nextLink.onclick = function(e) {
+                    e.preventDefault();
+                    renderCalendar(nextYear, nextMonth);
+                };
+
+                // Build calendar grid
+                const firstDay = new Date(year, month - 1, 1).getDay(); // 0=Sun
+                const daysInMonth = new Date(year, month, 0).getDate();
+
+                // Filter events for this month
+                const monthEvents = sampleEvents.filter(function(ev) {
+                    const d = new Date(ev.date);
+                    return d.getFullYear() === year && (d.getMonth() + 1) === month;
+                });
+
+                // Build cells
+                let cells = [];
+                let week = [];
+                // empty cells before first day
+                for (let i = 0; i < firstDay; i++) {
+                    week.push(null);
+                }
+                for (let d = 1; d <= daysInMonth; d++) {
+                    const dateStr = year + '-' + String(month).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+                    const dayEvents = monthEvents.filter(function(ev) { return ev.date === dateStr; });
+                    week.push({ day: d, events: dayEvents });
+                    if (week.length === 7) {
+                        cells.push(week);
+                        week = [];
+                    }
+                }
+                // remaining empty cells
+                if (week.length > 0) {
+                    while (week.length < 7) week.push(null);
+                    cells.push(week);
+                }
+
+                // Render
+                let html = '';
+                // weekdays header
+                html +=
+                    `<div class="calendar-weekdays"><div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div></div>`;
+
+                cells.forEach(function(weekData) {
+                    html += '<div class="calendar-week">';
+                    weekData.forEach(function(cell) {
+                        if (cell) {
+                            html += `<div class="calendar-day" data-date="${year}-${String(month).padStart(2,'0')}-${String(cell.day).padStart(2,'0')}">
+                                        <div class="day-number">${cell.day}</div>`;
+                            cell.events.forEach(function(ev) {
+                                html += `<div class="event-chip" data-title="${ev.title}" data-desc="${ev.desc}">${ev.title}</div>`;
+                            });
+                            html += '</div>';
+                        } else {
+                            html += '<div class="calendar-day empty"></div>';
+                        }
+                    });
+                    html += '</div>';
+                });
+
+                grid.innerHTML = html;
+
+                // attach event chip click listeners
+                grid.querySelectorAll('.event-chip').forEach(function(chip) {
+                    chip.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const title = this.dataset.title || 'Event';
+                        const desc = this.dataset.desc || 'No description available.';
+                        showModal(title, desc);
+                    });
+                });
+
+                // clicking a day shows first event if any
+                grid.querySelectorAll('.calendar-day:not(.empty)').forEach(function(day) {
+                    day.addEventListener('click', function() {
+                        const chips = this.querySelectorAll('.event-chip');
+                        if (chips.length > 0) {
+                            const first = chips[0];
+                            const title = first.dataset.title || 'Event';
+                            const desc = first.dataset.desc || 'No description available.';
+                            showModal(title, desc);
+                        }
+                    });
+                });
+            }
+
+            // ---------- MODAL ----------
+            const modal = document.getElementById('eventModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+            const modalClose = document.getElementById('modalClose');
+            const modalOk = document.getElementById('modalOk');
+
+            function showModal(title, desc) {
+                modalTitle.textContent = title;
+                modalBody.textContent = desc;
+                modal.classList.add('active');
+            }
+
+            function closeModal() {
+                modal.classList.remove('active');
+            }
+
+            modalClose.addEventListener('click', closeModal);
+            modalOk.addEventListener('click', closeModal);
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeModal();
+            });
+
+            // Initial calendar render
+            renderCalendar(currentYear, currentMonth);
+
+        });
+    </script>
+
+</body>
+</html>
